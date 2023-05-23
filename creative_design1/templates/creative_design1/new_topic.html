@@ -1,0 +1,9 @@
+{% extends "creative_design1/base.html" %} {% block content %}
+<p>Dodaj nowy temat:</p>
+
+<form action="{% url 'creative_design1:new_topic' %}" method="POST">
+	{% csrf_token %} {{ form.as_p }}
+	<button name="submit">Dodaj temat</button>
+</form>
+
+{% endblock content %}

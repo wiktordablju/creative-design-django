@@ -1,0 +1,7 @@
+{% extends 'creative_design1/base.html' %} {% block content %}
+<form method="POST" action='{% url "users:register" %}'>
+	{% csrf_token %} {{form.as_p}}
+	<button name="submit">Zarejestruj</button>
+	<input type="hidden" name="next" value="{% url 'creative_design1:index' %}" />
+	{% endblock content %}
+</form>
