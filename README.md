@@ -1,2 +1,2 @@
-# testdjango
-test
+# creative-design
+Basic Django test project

@@ -1,0 +1,49 @@
+{% load bootstrap5 %}
+
+<!doctype html>
+<html lang='pl'>
+	<head>
+		<meta charset='utf-8'>
+		<!DOCTYPE html>
+		<html lang="pl">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>ESSASITOOOO</title>
+		{% bootstrap_css %}
+	</head>
+
+	<body>
+		<div class="container d-flex justify-content-center ">
+		<nav class="navbar navbar-expand-md bg-body-tertiary bg-light mb-4 border ">
+			<div class="container-fluid d-flex justify-content-center text-center">
+			  <a class="navbar-brand" href="{%url 'creative_design1:index'%}">Creative Design</a>
+			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			  </button>
+			  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				<div class="navbar-nav">
+				  <a class="nav-link" href="{% url 'creative_design1:topics' %}">Tematy</a>
+				  {% if user.is_authenticated %} 
+				  <span class="text-info align-self-center"> Witaj, {{user.username}}. </span>
+	
+				  <a class="nav-link" href="{% url 'users:user_logout' %}">Wyloguj</a>
+				  {% else %}
+				  <a class="nav-link" href="{% url 'users:register' %}">Zarejestruj</a>
+				  <a class="nav-link" href="{% url 'users:login' %}">Zaloguj</a>
+				  {% endif %}
+				</div>
+			  </div>
+			</div>
+		  </nav>
+		</div>
+
+		<main role="main" class="container">
+			<div class="pb-2 mb-2 border-bottom">
+				{% block page_header %} {% endblock page_header %}	  
+			</div>
+			<div>
+				{% block content %} {% endblock content %}
+			</div>
+		</main>
+	</body>
+	</html>
