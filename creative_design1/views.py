@@ -12,7 +12,7 @@ def index(request):
 @login_required
 def topics(request):
     """Wyswietlenie wszystkich tematow"""
-    topics = Topic.objects.filter(owner=request.user).order_by('date_added')
+    topics = Topic.objects.order_by('date_added')
     context = {'topics': topics}
     return render(request, 'creative_design1/topics.html', context)
 
