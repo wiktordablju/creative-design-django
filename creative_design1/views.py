@@ -20,8 +20,6 @@ def topics(request):
 def topic(request, topic_id):
     """Wyswietla dany temat i wszystkie zwiazane z nim wpisy"""
     topic = Topic.objects.get(id=topic_id)
-    if topic.owner != request.user:
-        raise Http404    
     entries = topic.entry_set.order_by('-date_added')
     context = {'topic': topic, 'entries': entries}
     return render(request, 'creative_design1/topic.html', context)
