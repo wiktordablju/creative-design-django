@@ -1,2 +1,1 @@
-# creative-design
-Basic Django test project
+# Basic Django  project realised from book Python Crash Course by Eric Matthes
